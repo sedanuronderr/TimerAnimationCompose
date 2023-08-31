@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.seda.timeranimationcompose.ui.WavesLoadingIndicator
 
 @Composable
-fun WavesTimerAnimation() {
+fun TimerAnimation() {
     Column(modifier = Modifier.fillMaxSize()) {
 
         Box(modifier = Modifier.weight(1f, fill = true)) {
@@ -37,6 +37,11 @@ fun WavesTimerAnimation() {
                 timerState = isStarted ,
                 timerDurationInMillis = timerDurationInMillis
             )
+            LaunchedEffect(timerProgress == 0f) {
+                if (timerProgress == 0f) {
+                    isStarted = TimerState.Stopped
+                }
+            }
             WavesLoadingIndicator(
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.secondary,

@@ -64,7 +64,7 @@ fun WavesLoadingIndicator(modifier: Modifier, color: Color, progress: Float){
         }
 
         if (progress > 0f && wavesShader != null) {
-            WavesOnCanvas(shader = wavesShader!!, progress = progress.coerceAtMost(1f))
+            WavesOnCanvas(shader = wavesShader!!, progress = progress.coerceAtMost(0.99f))
         }
     }
 }
