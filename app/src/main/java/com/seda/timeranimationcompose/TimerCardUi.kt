@@ -83,11 +83,9 @@ fun TimerCardUi(
                 modifier = Modifier.animateContentSize { initialValue, targetValue ->  }, label = ""
             ) { isTimerStartedCurrentValue ->
                 if (!isTimerStartedCurrentValue) {
-                  Log.e("se","$isTimerStartedCurrentValue")
                       TimePicker(modifier = modifier,
                           seconds =timerFirstDuration / 1000 , onSecondChange ={
                               onTimerDurationChange(it*1000)
-                              Log.e("glen","$it")
                           } )
 
                 }
@@ -119,6 +117,7 @@ private fun TimerCountdown(timerProgress: Float, timerDurationInMillis: Int) {
         TextStyle(fontSize = 60.sp, fontWeight = FontWeight.ExtraBold)
     }
     val text = remember(timerProgress, timerDurationInMillis) {
+        Log.e("progreess","$timerProgress")
         val seconds = (timerProgress * (timerDurationInMillis / 1000)).roundToInt()
         String.format("%02d : %02d", seconds / 60, seconds % 60)
     }
