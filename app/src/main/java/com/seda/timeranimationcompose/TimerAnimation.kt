@@ -75,8 +75,7 @@ fun TimerAnimation() {
 
 private enum class TimerState {
     Started,
-    Stopped,
-    Paused
+    Stopped
 }
 @Composable
 private fun timerProgressAsState(
